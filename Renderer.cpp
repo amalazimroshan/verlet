@@ -40,16 +40,6 @@ void Renderer::Clear() {
 
 void Renderer::Present() { SDL_RenderPresent(mSDLRenderer); }
 
-bool Renderer::ProcessEvents() {
-  SDL_Event event;
-  while (SDL_PollEvent(&event)) {
-    if (event.type == SDL_QUIT) {
-      return false;  // Return false to indicate that we should quit
-    }
-  }
-  return true;  // Continue running
-}
-
 void Renderer::DrawCircle(int centerX, int centerY, int radius) {
   const int diameter = (radius * 2);
 
@@ -81,4 +71,9 @@ void Renderer::DrawCircle(int centerX, int centerY, int radius) {
       error += (tx - diameter);
     }
   }
+}
+
+void Renderer::DrawLine(int x1, int y1, int x2, int y2) {
+  SDL_SetRenderDrawColor(mSDLRenderer, 255, 255, 255, 255);  // White color
+  SDL_RenderDrawLine(mSDLRenderer, x1, y1, x2, y2);
 }

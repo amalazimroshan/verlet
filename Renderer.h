@@ -11,8 +11,8 @@ class Renderer {
 
   void Clear();
   void Present();
-  bool ProcessEvents();
   void DrawCircle(int centerX, int centerY, int radius);
+  void DrawLine(int x1, int y1, int x2, int y2);
 
  private:
   SDL_Window *mWindow;
